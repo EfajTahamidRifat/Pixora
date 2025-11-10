@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixora – Premium Royalty-Free Wallpapers</title>
+  <meta name="description" content="Pixora – Explore and download royalty-free wallpapers from Pexels, Unsplash, and Pixabay. Curated premium collections daily." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Disable right-click / inspect -->
+  <script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.onkeydown = function (e) {
+      if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) return false;
+    };
+  </script>
+</head>
+<body>
+  <!-- Adsterra Script -->
+  <script type="text/javascript" src="//pl27972299.effectivegatecpm.com/d1/68/b5/d168b5b67051fd14d2c99d47d77c1fe6.js"></script>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">Pix<span>ora</span></div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="menuBtn" class="menu-btn">☰</button>
+  </header>
+
+  <div id="mobileMenu" class="mobile-menu hidden">
+    <a href="#home">Home</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Discover <span>Premium</span> Royalty-Free Wallpapers</h1>
+      <p>Explore, preview, and download stunning wallpapers from Pexels, Unsplash, and Pixabay – curated daily.</p>
+      <a href="#gallery" class="btn-primary">Explore Gallery</a>
+    </div>
+  </section>
+
+  <!-- Search -->
+  <section class="search-section">
+    <input type="text" id="searchInput" placeholder="Search wallpapers... (nature, cars, luxury)" />
+    <div class="categories">
+      <button class="category active" data-category="all">All</button>
+      <button class="category" data-category="nature">Nature</button>
+      <button class="category" data-category="luxury">Luxury</button>
+      <button class="category" data-category="technology">Technology</button>
+      <button class="category" data-category="abstract">Abstract</button>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="gallery-section">
+    <div id="imageGrid" class="image-grid"></div>
+    <div id="loading" class="loading hidden">Loading wallpapers...</div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <h2>About Pixora</h2>
+    <p>
+      Pixora is a free wallpaper platform powered by APIs from top sources. Built for creators and enthusiasts who value premium-quality visuals.
+      Every image is royalty-free for personal and commercial use.
+    </p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Follow The Developer</h2>
+    <div class="socials">
+      <a href="https://www.facebook.com/profile.php?id=61581882005650" target="_blank">Facebook</a> |
+      <a href="https://www.tiktok.com/@efajtahamidrifat" target="_blank">TikTok</a> |
+      <a href="https://github.com/EfajTahamidRifat" target="_blank">GitHub</a>
+    </div>
+    <p class="dm-note">💬 DM on Facebook only</p>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Pixora. Built by Dewan Efaj Tahamid (Rifat).</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
