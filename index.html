@@ -3,92 +3,233 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pixora – Premium Royalty-Free Wallpapers</title>
-  <meta name="description" content="Pixora – Explore and download royalty-free wallpapers from Pexels, Unsplash, and Pixabay. Curated premium collections daily." />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <title>Pixora – Premium Royalty-Free Wallpapers & 4K Videos</title>
+  <meta name="description" content="Pixora by Lunvex Labs, Bangladesh — Download HD wallpapers & 4K videos. Royalty-free. No attribution. Premium quality, daily updates." />
+  <meta name="keywords" content="wallpaper, 4K video, free download, HD background, Pixora, Lunvex Labs, Bangladesh" />
+  <meta name="author" content="Dewan Efaj Tahamid (Rifat)" />
+  <meta property="og:title" content="Pixora – Premium Visuals by Lunvex Labs" />
+  <meta property="og:description" content="Curated HD wallpapers & 4K videos — free for personal & commercial use." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/000000/00c8ff?text=Pixora+Premium" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Disable right-click / inspect -->
+  <!-- 🔒 SECURITY: Block right-click & devtools -->
   <script>
-    document.addEventListener('contextmenu', event => event.preventDefault());
-    document.onkeydown = function (e) {
-      if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) return false;
-    };
+    // Block context menu
+    document.addEventListener('contextmenu', e => {
+      e.preventDefault();
+      showNotice('⚠️ Right-click disabled. Use the Download button.');
+    });
+
+    // Block F12, Ctrl+Shift+I/J, Ctrl+U
+    document.addEventListener('keydown', e => {
+      if (e.key === 'F12' ||
+          (e.ctrlKey && e.shiftKey && ['I', 'J'].includes(e.key.toUpperCase())) ||
+          (e.ctrlKey && e.key === 'u')) {
+        e.preventDefault();
+        showNotice('🔒 Developer tools disabled.');
+        return false;
+      }
+    });
+
+    // Helper: Toast notice
+    function showNotice(msg) {
+      let el = document.getElementById('toast');
+      if (!el) {
+        el = document.createElement('div');
+        el.id = 'toast';
+        el.style.cssText = `
+          position: fixed; top: 20px; left: 20px; z-index:10000;
+          background: #ff3b30; color: white; padding: 12px 20px; border-radius: 8px;
+          font-family: Inter, sans-serif; font-size: 14px; font-weight: 500;
+          box-shadow: 0 6px 20px rgba(0,0,0,0.4); transform: translateX(-120%);
+          transition: transform 0.3s ease;
+        `;
+        document.body.appendChild(el);
+      }
+      el.textContent = msg;
+      el.style.transform = 'translateX(0)';
+      setTimeout(() => el.style.transform = 'translateX(-120%)', 2500);
+    }
+
+    // 🛡️ ADBLOCK DETECT
+    let adBlocked = false;
+    const test = document.createElement('div');
+    test.className = 'ad-test';
+    test.style.cssText = 'width:1px;height:1px;position:absolute;left:-9999px;';
+    document.body.appendChild(test);
+    setTimeout(() => {
+      if (test.offsetHeight === 0) {
+        adBlocked = true;
+        document.body.classList.add('adblock');
+      }
+      document.body.removeChild(test);
+    }, 300);
   </script>
 </head>
-<body>
-  <!-- Adsterra Script -->
+<body class="loading">
+  <!-- 📢 ADSTERRA POPUNDER (auto-fire) -->
   <script type="text/javascript" src="//pl27972299.effectivegatecpm.com/d1/68/b5/d168b5b67051fd14d2c99d47d77c1fe6.js"></script>
 
-  <!-- Header -->
+  <!-- Top Ad Banner -->
+  <div class="top-ad-sticky">
+    <script type="text/javascript" src="//pl27972299.effectivegatecpm.com/d1/68/b5/d168b5b67051fd14d2c99d47d77c1fe6.js"></script>
+  </div>
+
+  <!-- Header (Left-Aligned) -->
   <header class="navbar">
-    <div class="logo">Pix<span>ora</span></div>
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button id="menuBtn" class="menu-btn">☰</button>
+    <div class="container">
+      <div class="logo">Pix<span>ora</span></div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#gallery">Wallpapers</a>
+        <a href="#videos">Videos</a>
+        <a href="#about">About</a>
+      </nav>
+      <button id="menuBtn" class="menu-btn">☰</button>
+    </div>
   </header>
 
   <div id="mobileMenu" class="mobile-menu hidden">
     <a href="#home">Home</a>
-    <a href="#gallery">Gallery</a>
+    <a href="#gallery">Wallpapers</a>
+    <a href="#videos">Videos</a>
     <a href="#about">About</a>
-    <a href="#contact">Contact</a>
   </div>
 
-  <!-- Hero -->
+  <!-- Hero (Left-Aligned) -->
   <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Discover <span>Premium</span> Royalty-Free Wallpapers</h1>
-      <p>Explore, preview, and download stunning wallpapers from Pexels, Unsplash, and Pixabay – curated daily.</p>
-      <a href="#gallery" class="btn-primary">Explore Gallery</a>
+    <div class="container">
+      <div class="hero-content">
+        <span class="tag">✨ Premium Collection • Updated Daily</span>
+        <h1>HD Wallpapers & <span>4K Videos</span></h1>
+        <p class="subtitle">Curated by <strong>Lunvex Labs, Bangladesh</strong> — royalty-free for personal & commercial use.</p>
+        <div class="cta-group">
+          <a href="#gallery" class="btn-primary">→ Browse Wallpapers</a>
+          <a href="#videos" class="btn-outline">▶ Watch Videos</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Search -->
+  <!-- Search & Tabs (Left) -->
   <section class="search-section">
-    <input type="text" id="searchInput" placeholder="Search wallpapers... (nature, cars, luxury)" />
-    <div class="categories">
-      <button class="category active" data-category="all">All</button>
-      <button class="category" data-category="nature">Nature</button>
-      <button class="category" data-category="luxury">Luxury</button>
-      <button class="category" data-category="technology">Technology</button>
-      <button class="category" data-category="abstract">Abstract</button>
+    <div class="container">
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search wallpapers or videos..." />
+        <button id="searchBtn">🔍</button>
+      </div>
+      <div class="tabs">
+        <button class="tab active" data-type="wallpaper">🖼️ Wallpapers</button>
+        <button class="tab" data-type="video">🎥 Videos</button>
+      </div>
     </div>
   </section>
 
   <!-- Gallery -->
   <section id="gallery" class="gallery-section">
-    <div id="imageGrid" class="image-grid"></div>
-    <div id="loading" class="loading hidden">Loading wallpapers...</div>
+    <div class="container">
+      <h2 class="section-title">Premium Wallpapers</h2>
+      <div id="wallpaperGrid" class="content-grid"></div>
+    </div>
+  </section>
+
+  <section id="videos" class="gallery-section">
+    <div class="container">
+      <h2 class="section-title">4K Videos</h2>
+      <div id="videoGrid" class="content-grid"></div>
+    </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="about">
-    <h2>About Pixora</h2>
-    <p>
-      Pixora is a free wallpaper platform powered by APIs from top sources. Built for creators and enthusiasts who value premium-quality visuals.
-      Every image is royalty-free for personal and commercial use.
-    </p>
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>About Pixora</h2>
+      <div class="about-content">
+        <p>
+          Pixora is a premium visual library built by <strong>Dewan Efaj Tahamid (Rifat)</strong> at <strong>Lunvex Labs, Bangladesh</strong>.
+        </p>
+        <p>
+          We aggregate & curate high-resolution assets from trusted sources — processed in-house to ensure quality, consistency, and license compliance.
+        </p>
+        <p>✅ Royalty-free • ✅ No attribution required • ✅ Commercial use allowed</p>
+      </div>
+    </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="contact">
-    <h2>Follow The Developer</h2>
-    <div class="socials">
-      <a href="https://www.facebook.com/profile.php?id=61581882005650" target="_blank">Facebook</a> |
-      <a href="https://www.tiktok.com/@efajtahamidrifat" target="_blank">TikTok</a> |
-      <a href="https://github.com/EfajTahamidRifat" target="_blank">GitHub</a>
+  <section class="contact-section">
+    <div class="container">
+      <h3>Connect with the Developer</h3>
+      <div class="social-grid">
+        <a href="https://www.facebook.com/profile.php?id=61581882005650" target="_blank" class="social-card">
+          <div class="social-icon">📘</div>
+          <div>Facebook</div>
+        </a>
+        <a href="https://www.tiktok.com/@efajtahamidrifat" target="_blank" class="social-card">
+          <div class="social-icon">🎵</div>
+          <div>TikTok</div>
+        </a>
+        <a href="https://github.com/EfajTahamidRifat" target="_blank" class="social-card">
+          <div class="social-icon">🐙</div>
+          <div>GitHub</div>
+        </a>
+        <a href="https://t.me/EfajTahamidRIFAT" target="_blank" class="social-card">
+          <div class="social-icon">✈️</div>
+          <div>Telegram</div>
+        </a>
+      </div>
+      <p class="dm-note">💬 DM on Facebook or Telegram for support/collabs.</p>
     </div>
-    <p class="dm-note">💬 DM on Facebook only</p>
   </section>
 
   <footer class="footer">
-    <p>© 2025 Pixora. Built by Dewan Efaj Tahamid (Rifat).</p>
+    <div class="container">
+      <p>© 2025 Pixora. Built by <strong>Dewan Efaj Tahamid (Rifat)</strong>.</p>
+      <p>Lunvex Labs • Dhaka, Bangladesh</p>
+    </div>
   </footer>
+
+  <!-- 🔒 Adblock Lock Screen -->
+  <div id="adblockOverlay" class="overlay hidden">
+    <div class="overlay-content">
+      <div class="adblock-msg">
+        <h3>🛑 Ad Blocker Detected</h3>
+        <p>To support Pixora and unlock downloads, please disable your ad blocker.</p>
+        <p>We only display one high-quality ad per download — no pop-ups.</p>
+        <div class="ad-placeholder">
+          <script type="text/javascript" src="//pl27972299.effectivegatecpm.com/d1/68/b5/d168b5b67051fd14d2c99d47d77c1fe6.js"></script>
+        </div>
+        <button id="adLoadedBtn" class="btn-primary" disabled>Loading ad...</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🎁 Premium Download Gate (5-sec ad lock — per download) -->
+  <div id="premiumGate" class="modal hidden">
+    <div class="modal-content">
+      <button class="close-gate">&times;</button>
+      <h3>🔓 Premium Unlock</h3>
+      <p>One ad = One download. Support creators.</p>
+      <div class="ad-placeholder gate-ad">
+        <script type="text/javascript" src="//pl27972299.effectivegatecpm.com/d1/68/b5/d168b5b67051fd14d2c99d47d77c1fe6.js"></script>
+      </div>
+      <div class="countdown">Download available in <span id="count">5</span>s</div>
+      <button id="finalDownloadBtn" class="btn-primary" disabled>🔽 Download Now</button>
+    </div>
+  </div>
+
+  <!-- Video Modal (for full preview) -->
+  <div id="videoModal" class="modal hidden">
+    <div class="modal-content video-modal">
+      <button class="close-video">&times;</button>
+      <video id="modalVideo" controls playsinline></video>
+      <div class="video-controls">
+        <button id="modalSoundToggle" class="sound-btn">🔊</button>
+        <button id="modalDownloadVideo" class="btn-secondary">🔽 Download Video</button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
